@@ -25,7 +25,7 @@ pipeline{
         }
         stage('Docker image build'){
             steps{
-                sh 'cd \'/var/lib/jenkins/workspace/TestPipeline\''
+                sh 'cd \'/var/lib/jenkins/workspace/TestPipeline/TestPipeline\''
                 script{
                     docker.build("${IMAGE_NAME}:${IMAGE_TAG}")
                 }
