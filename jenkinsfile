@@ -1,1 +1,36 @@
-hy
+pipeline{
+
+    agent any 
+
+    environment{
+        IMAGE_NAME = "gopalgoyal/testpipeline"
+        IMAGE_TAG = 'latest'
+    }
+
+    stages{
+        stage('checkout'){
+            steps{
+                checkout scm
+            }
+        }
+        stage('build'){
+            steps{
+                sh 'dotnet build'
+            }
+        }
+        stage('test'){
+            steps{
+                sh 'dotnet test'
+            }
+        }
+        stage('Docker image build'){
+            steps{
+            }
+        }
+        stage('Docker Push'){
+            steps{
+
+            }
+        }
+    }
+}
