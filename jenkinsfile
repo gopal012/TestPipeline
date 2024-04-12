@@ -31,10 +31,13 @@ pipeline{
                 }
             }
         }
-        // stage('Docker Push'){
-        //     steps{
-
-        //     }
-        // }
+        stage('Docker Push'){
+            steps{
+                script{
+                    docker.withRegistry( '', dockercredentials ) {
+                    dockerImage.push()
+                }
+            }
+        }
     }
 }
